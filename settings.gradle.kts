@@ -17,5 +17,3 @@ rootProject.name = "decompose-template"
 include(":shared")
 include(":compose-ui")
 include(":app-android")
-include(":app-desktop")
-include(":app-ios-compose")
