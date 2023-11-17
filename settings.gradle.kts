@@ -13,7 +13,7 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "decompose-template"
+rootProject.name = "itmo-events"
 include(":shared")
 include(":compose-ui")
 include(":app-android")
