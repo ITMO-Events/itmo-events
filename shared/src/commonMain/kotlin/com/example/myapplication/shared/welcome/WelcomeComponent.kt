@@ -6,10 +6,10 @@ interface WelcomeComponent {
 
     val model: Value<Model>
 
-    fun onUpdateGreetingText()
-    fun onBackClicked()
+    fun onButtonClick()
 
     data class Model(
-        val greetingText: String = "Welcome from Decompose!"
+        val greetingText: String = "Добро пожаловать в ITMO.Events",
+        val loginWith: String = "Войти с помощью ITMO Id"
     )
 }

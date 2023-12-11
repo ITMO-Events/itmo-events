@@ -1,13 +1,24 @@
 package com.example.myapplication.shared.main
 
 import com.arkivanov.decompose.ComponentContext
+import com.arkivanov.decompose.value.MutableValue
+import com.arkivanov.decompose.value.Value
 
 class DefaultMainComponent(
-    componentContext: ComponentContext,
+    private val componentContext: ComponentContext,
     private val onShowWelcome: () -> Unit,
 ) : MainComponent, ComponentContext by componentContext {
 
-    override fun onShowWelcomeClicked() {
-        onShowWelcome()
+    private val state = MutableValue(MainComponent.Model())
+    override val model: Value<MainComponent.Model> = state
+
+    override fun addEvent() {
+
     }
+
+    override fun showFilter() {
+        TODO("Not yet implemented")
+    }
+
+
 }

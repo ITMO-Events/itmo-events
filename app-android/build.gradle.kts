@@ -43,4 +43,13 @@ dependencies {
     implementation(project(":compose-ui"))
     implementation(libs.androidx.activity.activityCompose)
     implementation(compose.foundation)
+
+    debugImplementation(compose.uiTooling)
+    implementation(compose.preview)
+
+    implementation(compose.ui)
+    implementation(compose.material3)
+
+    implementation(libs.decompose.decompose)
+    implementation(libs.decompose.extensionsComposeJetbrains)
 }

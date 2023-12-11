@@ -4,7 +4,7 @@ import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.systemBars
 import androidx.compose.foundation.layout.windowInsetsPadding
-import androidx.compose.material.Surface
+import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.arkivanov.decompose.extensions.compose.jetbrains.stack.Children
@@ -12,10 +12,11 @@ import com.arkivanov.decompose.extensions.compose.jetbrains.stack.animation.fade
 import com.arkivanov.decompose.extensions.compose.jetbrains.stack.animation.plus
 import com.arkivanov.decompose.extensions.compose.jetbrains.stack.animation.scale
 import com.arkivanov.decompose.extensions.compose.jetbrains.stack.animation.stackAnimation
+import com.example.myapplication.LoginContent
 import com.example.myapplication.main.MainContent
 import com.example.myapplication.shared.root.RootComponent
 import com.example.myapplication.shared.root.RootComponent.Child
-import com.example.myapplication.welcome.WelcomeContent
+import com.example.myapplication.WelcomeContent
 
 @Composable
 fun RootContent(
@@ -31,6 +32,7 @@ fun RootContent(
             when (val instance = it.instance) {
                 is Child.Main -> MainContent(component = instance.component)
                 is Child.Welcome -> WelcomeContent(component = instance.component)
+                is Child.Login -> LoginContent(component = instance.component)
             }
         }
     }

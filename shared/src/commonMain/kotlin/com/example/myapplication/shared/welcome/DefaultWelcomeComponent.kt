@@ -9,18 +9,13 @@ import com.example.myapplication.shared.welcome.WelcomeComponent.Model
 
 class DefaultWelcomeComponent(
     private val componentContext: ComponentContext,
-    private val onFinished: () -> Unit,
+    private val onButtonClick: () -> Unit,
 ) : WelcomeComponent, ComponentContext by componentContext {
 
     // Consider preserving and managing the state via a store
     private val state = MutableValue(Model())
     override val model: Value<Model> = state
-
-    override fun onUpdateGreetingText() {
-        state.update { it.copy(greetingText = "Welcome from ${getPlatformName()}") }
-    }
-
-    override fun onBackClicked() {
-        onFinished()
+    override fun onButtonClick() {
+        onButtonClick.invoke()
     }
 }

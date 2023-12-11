@@ -10,6 +10,8 @@ import com.arkivanov.decompose.router.stack.push
 import com.arkivanov.decompose.value.Value
 import com.arkivanov.essenty.parcelable.Parcelable
 import com.arkivanov.essenty.parcelable.Parcelize
+import com.example.myapplication.shared.login.DefaultLoginComponent
+import com.example.myapplication.shared.login.LoginComponent
 import com.example.myapplication.shared.main.DefaultMainComponent
 import com.example.myapplication.shared.main.MainComponent
 import com.example.myapplication.shared.root.RootComponent.Child
@@ -25,7 +27,7 @@ class DefaultRootComponent(
     override val stack: Value<ChildStack<*, Child>> =
         childStack(
             source = navigation,
-            initialConfiguration = Config.Main,
+            initialConfiguration = Config.Welcome,
             handleBackButton = true,
             childFactory = ::child,
         )
@@ -34,6 +36,7 @@ class DefaultRootComponent(
         when (config) {
             is Config.Main -> Child.Main(mainComponent(childComponentContext))
             is Config.Welcome -> Child.Welcome(welcomeComponent(childComponentContext))
+            is Config.Login -> Child.Login(loginComponent(childComponentContext))
         }
 
     private fun mainComponent(componentContext: ComponentContext): MainComponent =
@@ -45,8 +48,13 @@ class DefaultRootComponent(
     private fun welcomeComponent(componentContext: ComponentContext): WelcomeComponent =
         DefaultWelcomeComponent(
             componentContext = componentContext,
-            onFinished = navigation::pop,
+            onButtonClick = { navigation.push(Config.Login) },
         )
+
+    private fun loginComponent(componentContext: ComponentContext): LoginComponent =
+        DefaultLoginComponent(componentContext) {
+            navigation.push(Config.Main)
+        }
 
     override fun onBackClicked(toIndex: Int) {
         navigation.popTo(index = toIndex)
@@ -58,5 +66,8 @@ class DefaultRootComponent(
 
         @Parcelize
         data object Welcome : Config
+
+        @Parcelize
+        data object Login : Config
     }
 }
