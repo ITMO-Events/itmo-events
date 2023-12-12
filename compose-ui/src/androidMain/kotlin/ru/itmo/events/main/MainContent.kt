@@ -18,7 +18,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import com.arkivanov.decompose.extensions.compose.jetbrains.subscribeAsState
-import ru.itmo.FiltersContent
 import ru.itmo.events.StatesContent
 import ru.itmo.events.compose.R
 import ru.itmo.events.shared.main.MainComponent
@@ -46,9 +45,11 @@ internal fun MainContent(
     ) { paddingValues ->
         Column(modifier = Modifier.padding(paddingValues).fillMaxSize()) {
             StatesContent(
-                isEmpty = model.items.isEmpty(),
-                emptyDescription = "Мероприятий нет"
-            ) { TODO() }
+                model.loadState,
+                errorDescription = model.errorDescription,
+                emptyDescription = "Мероприятий нет",
+                onRetry = component::onRetry
+            )
             if (model.items.isNotEmpty())
                 LazyColumn {
                     items(model.items) {

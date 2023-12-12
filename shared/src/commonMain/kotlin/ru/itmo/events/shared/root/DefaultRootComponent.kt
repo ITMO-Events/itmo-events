@@ -23,13 +23,12 @@ class DefaultRootComponent(
 
     private val navigation = StackNavigation<Config>()
 
-    override val stack: Value<ChildStack<*, Child>> =
-        childStack(
-            source = navigation,
-            initialConfiguration = Config.Welcome,
-            handleBackButton = true,
-            childFactory = ::child,
-        )
+    override val stack: Value<ChildStack<*, Child>> = childStack(
+        source = navigation,
+        initialConfiguration = Config.Welcome,
+        handleBackButton = true,
+        childFactory = ::child,
+    )
 
     private fun child(config: Config, childComponentContext: ComponentContext): Child =
         when (config) {
@@ -40,8 +39,7 @@ class DefaultRootComponent(
 
     private fun mainComponent(componentContext: ComponentContext): MainComponent =
         DefaultMainComponent(
-            componentContext = componentContext,
-            onShowWelcome = { navigation.push(Config.Welcome) },
+            componentContext = componentContext
         )
 
     private fun welcomeComponent(componentContext: ComponentContext): WelcomeComponent =

@@ -3,13 +3,13 @@ package ru.itmo.events.shared.main
 import com.arkivanov.decompose.ComponentContext
 import com.arkivanov.decompose.value.MutableValue
 import com.arkivanov.decompose.value.Value
+import ru.itmo.events.shared.LoadStates
 
 class DefaultMainComponent(
     private val componentContext: ComponentContext,
-    private val onShowWelcome: () -> Unit,
 ) : MainComponent, ComponentContext by componentContext {
 
-    private val state = MutableValue(MainComponent.Model(listOf()))
+    private val state = MutableValue(MainComponent.Model(listOf(), LoadStates.LOADING, null))
     override val model: Value<MainComponent.Model> = state
 
     override fun addEvent() {
@@ -17,6 +17,10 @@ class DefaultMainComponent(
     }
 
     override fun showFilter() {
+        TODO("Not yet implemented")
+    }
+
+    override fun onRetry() {
         TODO("Not yet implemented")
     }
 
