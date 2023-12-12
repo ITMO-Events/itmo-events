@@ -48,7 +48,7 @@ kotlin {
 }
 
 android {
-    namespace = "com.example.myapplication.shared"
+    namespace = "ru.itmo.events.shared"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     defaultConfig {

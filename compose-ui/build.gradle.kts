@@ -42,7 +42,7 @@ kotlin {
 }
 
 android {
-    namespace = "com.example.myapplication.compose"
+    namespace = "ru.itmo.events.compose"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     defaultConfig {
