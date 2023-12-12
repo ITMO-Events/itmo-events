@@ -13,7 +13,7 @@ import com.arkivanov.decompose.extensions.compose.jetbrains.stack.animation.plus
 import com.arkivanov.decompose.extensions.compose.jetbrains.stack.animation.scale
 import com.arkivanov.decompose.extensions.compose.jetbrains.stack.animation.stackAnimation
 import ru.itmo.events.LoginContent
-import ru.itmo.events.WelcomeContent
+import ru.itmo.events.welcome.WelcomeContent
 import ru.itmo.events.main.MainContent
 import ru.itmo.events.shared.root.RootComponent
 import ru.itmo.events.shared.root.RootComponent.Child

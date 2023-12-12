@@ -10,6 +10,6 @@ interface WelcomeComponent {
 
     data class Model(
         val greetingText: String = "Добро пожаловать в ITMO.Events",
-        val loginWith: String = "Войти с помощью ITMO Id"
+        val loginWith: String = "Войти с помощью"
     )
 }
