@@ -1,7 +1,6 @@
 plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.android.application)
-    alias(libs.plugins.jetbrains.compose)
 }
 
 android {
@@ -28,9 +27,16 @@ android {
         }
     }
 
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.5.4"
+    }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
+    }
+
+    buildFeatures {
+        compose = true
     }
 
     kotlinOptions {
@@ -42,13 +48,30 @@ dependencies {
     implementation(project(":shared"))
     implementation(project(":compose-ui"))
     implementation(libs.androidx.activity.activityCompose)
-    implementation(compose.foundation)
 
-    debugImplementation(compose.uiTooling)
-    implementation(compose.preview)
+    val composeBom = platform("androidx.compose:compose-bom:2023.10.01")
+    implementation(composeBom)
+    androidTestImplementation(composeBom)
 
-    implementation(compose.ui)
-    implementation(compose.material3)
+    // Choose one of the following:
+    // Material Design 3
+    implementation("androidx.compose.material3:material3")
+    // or Material Design 2
+    implementation("androidx.compose.material:material")
+    // or skip Material Design and build directly on top of foundational components
+    implementation("androidx.compose.foundation:foundation")
+    // or only import the main APIs for the underlying toolkit systems,
+    // such as input and measurement/layout
+    implementation("androidx.compose.ui:ui")
+
+    // Android Studio Preview support
+    implementation("androidx.compose.ui:ui-tooling-preview")
+    debugImplementation("androidx.compose.ui:ui-tooling")
+
+    // UI Tests
+    androidTestImplementation("androidx.compose.ui:ui-test-junit4")
+    debugImplementation("androidx.compose.ui:ui-test-manifest")
+
 
     implementation(libs.decompose.decompose)
     implementation(libs.decompose.extensionsComposeJetbrains)
