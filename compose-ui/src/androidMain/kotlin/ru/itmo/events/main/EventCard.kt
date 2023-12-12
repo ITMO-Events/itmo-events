@@ -27,15 +27,19 @@ import ru.itmo.events.theme.AppTheme
 @Composable
 fun EventCard(
     name: String,
+    preview: Painter,
     date: String,
     description: String,
     onClick: () -> Unit,
     onAddCalendarClick: () -> Unit
 ) {
     Row(
-        modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp).fillMaxWidth()
-            .clickable { onClick.invoke() }) {
-//        Icon(imagePreview, contentDescription = null)
+        modifier = Modifier.clickable { onClick.invoke() }
+            .padding(horizontal = 16.dp, vertical = 8.dp).fillMaxWidth(),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+
+        Icon(preview, contentDescription = null, modifier = Modifier.height(52.dp))
         Spacer(modifier = Modifier.size(16.dp))
         Column {
             Text(name, style = MaterialTheme.typography.bodyLarge)
@@ -46,8 +50,12 @@ fun EventCard(
             )
             Text(description, style = MaterialTheme.typography.bodyMedium)
         }
-        Spacer(modifier = Modifier.fillMaxWidth())
-        Icon(Icons.Default.Add, contentDescription = null)
+        Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
+            Icon(
+                Icons.Default.Add,
+                contentDescription = null,
+                modifier = Modifier.clickable { onAddCalendarClick.invoke() })
+        }
     }
 }
 
@@ -57,7 +65,7 @@ fun EventCardPreview() {
     AppTheme {
         EventCard(
             "MegaQuiz X",
-//            painterResource(R.drawable.ic_itmo_id),
+            painterResource(R.drawable.ic_icon_test),
             "22.09.2005",
             "Supporting line text lorem ipsum dolor sit amet, consectetur.",
             {},

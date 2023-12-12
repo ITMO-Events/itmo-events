@@ -41,6 +41,13 @@ internal fun MainContent(
             }
         }
     ) {
-
+        LazyColumn(modifier = Modifier.padding(it).fillMaxSize()) {
+            items(10) {
+                EventCard("MegaQuiz X",
+                    painterResource(R.drawable.ic_icon_test),
+                    "22.09.2019",
+                    "Будет крутой ивент дааааа", {}, {})
+            }
+        }
     }
 }
