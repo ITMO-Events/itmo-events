@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material3.CenterAlignedTopAppBar
@@ -17,6 +18,8 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import com.arkivanov.decompose.extensions.compose.jetbrains.subscribeAsState
+import ru.itmo.FiltersContent
+import ru.itmo.events.StatesContent
 import ru.itmo.events.compose.R
 import ru.itmo.events.shared.main.MainComponent
 
@@ -40,14 +43,21 @@ internal fun MainContent(
                 Icon(Icons.Filled.Add, contentDescription = null) // TODO поменять иконку
             }
         }
-    ) {
-        LazyColumn(modifier = Modifier.padding(it).fillMaxSize()) {
-            items(10) {
-                EventCard("MegaQuiz X",
-                    painterResource(R.drawable.ic_icon_test),
-                    "22.09.2019",
-                    "Будет крутой ивент дааааа", {}, {})
-            }
+    ) { paddingValues ->
+        Column(modifier = Modifier.padding(paddingValues).fillMaxSize()) {
+            StatesContent(
+                isEmpty = model.items.isEmpty(),
+                emptyDescription = "Мероприятий нет"
+            ) { TODO() }
+            if (model.items.isNotEmpty())
+                LazyColumn {
+                    items(model.items) {
+                        EventCard(it.name,
+                            painterResource(R.drawable.ic_icon_test),
+                            it.date,
+                            it.description, {}, {})
+                    }
+                }
         }
     }
 }

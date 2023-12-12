@@ -9,7 +9,7 @@ class DefaultMainComponent(
     private val onShowWelcome: () -> Unit,
 ) : MainComponent, ComponentContext by componentContext {
 
-    private val state = MutableValue(MainComponent.Model())
+    private val state = MutableValue(MainComponent.Model(listOf()))
     override val model: Value<MainComponent.Model> = state
 
     override fun addEvent() {

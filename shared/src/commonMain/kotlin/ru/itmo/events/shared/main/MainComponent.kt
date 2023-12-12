@@ -13,6 +13,7 @@ interface MainComponent {
 
 
     data class Model(
+        var items: List<EventCardUiEntity>,
         val itmoEvents: String = "itmo.events"
     )
 }
