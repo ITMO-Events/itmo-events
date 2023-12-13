@@ -1,4 +1,4 @@
-package ru.itmo.events
+package ru.itmo.events.presentation
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize

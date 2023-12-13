@@ -1,7 +1,5 @@
-package ru.itmo.events
+package ru.itmo.events.presentation
 
-import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.animation.scaleIn
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -22,7 +20,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import ru.itmo.events.compose.R
 import ru.itmo.events.shared.LoadStates
-import ru.itmo.events.theme.AppTheme
+import ru.itmo.events.presentation.theme.AppTheme
 
 @Composable
 fun StatesContent(

@@ -1,4 +1,4 @@
-package ru.itmo.events.main
+package ru.itmo.events.presentation.main
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -14,12 +14,17 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.SnapshotMutationPolicy
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.structuralEqualityPolicy
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
 import com.arkivanov.decompose.extensions.compose.jetbrains.subscribeAsState
-import ru.itmo.events.StatesContent
+import ru.itmo.events.presentation.StatesContent
 import ru.itmo.events.compose.R
+import ru.itmo.events.presentation.FiltersContent
+import ru.itmo.events.presentation.theme.AppTheme
 import ru.itmo.events.shared.main.MainComponent
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -28,7 +33,7 @@ internal fun MainContent(
     component: MainComponent,
     modifier: Modifier = Modifier,
 ) {
-    val model by component.model.subscribeAsState()
+    val model by component.model.subscribeAsState(structuralEqualityPolicy())
 
     Scaffold(
         modifier = modifier,
@@ -43,22 +48,34 @@ internal fun MainContent(
             }
         }
     ) { paddingValues ->
-        Column(modifier = Modifier.padding(paddingValues).fillMaxSize()) {
+        Column(
+            modifier = Modifier
+                .padding(paddingValues)
+                .fillMaxSize()
+        ) {
+            FiltersContent(
+                verified = model.onlyVerifiedEvents,
+                filtersList = model.filtersList,
+                onVerifyClick = { model.onlyVerifiedEvents = !model.onlyVerifiedEvents },
+                onClick = { }
+            )
             StatesContent(
                 model.loadState,
                 errorDescription = model.errorDescription,
                 emptyDescription = "Мероприятий нет",
                 onRetry = component::onRetry
             )
-            if (model.items.isNotEmpty())
+
+            if (model.events.isNotEmpty()) {
                 LazyColumn {
-                    items(model.items) {
+                    items(model.events) {
                         EventCard(it.name,
                             painterResource(R.drawable.ic_icon_test),
                             it.date,
                             it.description, {}, {})
                     }
                 }
+            }
         }
     }
 }

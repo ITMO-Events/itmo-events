@@ -1,4 +1,4 @@
-package ru.itmo.events.welcome
+package ru.itmo.events.presentation.welcome
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column

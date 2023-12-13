@@ -1,4 +1,4 @@
-package ru.itmo.events.main
+package ru.itmo.events.presentation.main
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -22,7 +22,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import ru.itmo.events.compose.R
-import ru.itmo.events.theme.AppTheme
+import ru.itmo.events.presentation.theme.AppTheme
 
 @Composable
 fun EventCard(
@@ -60,7 +60,7 @@ fun EventCard(
 }
 
 @Composable
-@Preview
+@Preview(showBackground = true)
 fun EventCardPreview() {
     AppTheme {
         EventCard(

@@ -1,4 +1,4 @@
-package ru.itmo.events.root
+package ru.itmo.events.presentation.root
 
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
@@ -12,9 +12,9 @@ import com.arkivanov.decompose.extensions.compose.jetbrains.stack.animation.fade
 import com.arkivanov.decompose.extensions.compose.jetbrains.stack.animation.plus
 import com.arkivanov.decompose.extensions.compose.jetbrains.stack.animation.scale
 import com.arkivanov.decompose.extensions.compose.jetbrains.stack.animation.stackAnimation
-import ru.itmo.events.LoginContent
-import ru.itmo.events.welcome.WelcomeContent
-import ru.itmo.events.main.MainContent
+import ru.itmo.events.presentation.LoginContent
+import ru.itmo.events.presentation.welcome.WelcomeContent
+import ru.itmo.events.presentation.main.MainContent
 import ru.itmo.events.shared.root.RootComponent
 import ru.itmo.events.shared.root.RootComponent.Child
 

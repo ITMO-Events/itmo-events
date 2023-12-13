@@ -1,4 +1,4 @@
-package ru.itmo.events.theme
+package ru.itmo.events.presentation.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
