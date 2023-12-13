@@ -1,9 +1,9 @@
-package ru.itmo.events.shared.main
+package ru.itmo.events.shared.domain.main
 
 import com.arkivanov.decompose.ComponentContext
 import com.arkivanov.decompose.value.MutableValue
 import com.arkivanov.decompose.value.Value
-import ru.itmo.events.shared.LoadStates
+import ru.itmo.events.shared.domain.LoadStates
 
 class DefaultMainComponent(
     private val componentContext: ComponentContext,

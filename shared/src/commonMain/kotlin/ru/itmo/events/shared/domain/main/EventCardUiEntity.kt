@@ -1,4 +1,4 @@
-package ru.itmo.events.shared.main
+package ru.itmo.events.shared.domain.main
 
 
 data class EventCardUiEntity(

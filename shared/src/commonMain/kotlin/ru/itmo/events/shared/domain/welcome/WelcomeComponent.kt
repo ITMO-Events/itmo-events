@@ -1,4 +1,4 @@
-package ru.itmo.events.shared.welcome
+package ru.itmo.events.shared.domain.welcome
 
 import com.arkivanov.decompose.value.Value
 

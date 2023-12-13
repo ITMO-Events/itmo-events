@@ -1,10 +1,10 @@
-package ru.itmo.events.shared.root
+package ru.itmo.events.shared.domain.root
 
 import com.arkivanov.decompose.router.stack.ChildStack
 import com.arkivanov.decompose.value.Value
-import ru.itmo.events.shared.login.LoginComponent
-import ru.itmo.events.shared.main.MainComponent
-import ru.itmo.events.shared.welcome.WelcomeComponent
+import ru.itmo.events.shared.domain.login.LoginComponent
+import ru.itmo.events.shared.domain.main.MainComponent
+import ru.itmo.events.shared.domain.welcome.WelcomeComponent
 
 interface RootComponent {
 

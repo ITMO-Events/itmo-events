@@ -1,4 +1,4 @@
-package ru.itmo.events.shared
+package ru.itmo.events.shared.domain
 
 data class FilterUiEntity(
     val id: Int,

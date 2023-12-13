@@ -14,18 +14,15 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.SnapshotMutationPolicy
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.structuralEqualityPolicy
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
 import com.arkivanov.decompose.extensions.compose.jetbrains.subscribeAsState
 import ru.itmo.events.presentation.StatesContent
 import ru.itmo.events.compose.R
 import ru.itmo.events.presentation.FiltersContent
-import ru.itmo.events.presentation.theme.AppTheme
-import ru.itmo.events.shared.main.MainComponent
+import ru.itmo.events.shared.domain.main.MainComponent
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

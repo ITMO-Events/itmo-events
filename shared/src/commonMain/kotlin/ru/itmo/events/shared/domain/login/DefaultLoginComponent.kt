@@ -1,4 +1,4 @@
-package ru.itmo.events.shared.login
+package ru.itmo.events.shared.domain.login
 
 import com.arkivanov.decompose.ComponentContext
 

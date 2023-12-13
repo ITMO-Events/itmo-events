@@ -20,7 +20,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.arkivanov.decompose.extensions.compose.jetbrains.subscribeAsState
 import ru.itmo.events.compose.R
-import ru.itmo.events.shared.welcome.WelcomeComponent
+import ru.itmo.events.shared.domain.welcome.WelcomeComponent
 
 @Composable
 internal fun WelcomeContent(

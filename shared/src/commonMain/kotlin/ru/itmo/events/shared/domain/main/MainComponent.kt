@@ -1,8 +1,8 @@
-package ru.itmo.events.shared.main
+package ru.itmo.events.shared.domain.main
 
 import com.arkivanov.decompose.value.Value
-import ru.itmo.events.shared.FilterUiEntity
-import ru.itmo.events.shared.LoadStates
+import ru.itmo.events.shared.domain.FilterUiEntity
+import ru.itmo.events.shared.domain.LoadStates
 
 interface MainComponent {
 

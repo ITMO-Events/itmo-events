@@ -1,9 +1,9 @@
-package ru.itmo.events.shared.welcome
+package ru.itmo.events.shared.domain.welcome
 
 import com.arkivanov.decompose.ComponentContext
 import com.arkivanov.decompose.value.MutableValue
 import com.arkivanov.decompose.value.Value
-import ru.itmo.events.shared.welcome.WelcomeComponent.Model
+import ru.itmo.events.shared.domain.welcome.WelcomeComponent.Model
 
 class DefaultWelcomeComponent(
     private val componentContext: ComponentContext,

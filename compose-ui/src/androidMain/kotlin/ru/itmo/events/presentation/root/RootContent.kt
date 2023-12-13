@@ -15,8 +15,8 @@ import com.arkivanov.decompose.extensions.compose.jetbrains.stack.animation.stac
 import ru.itmo.events.presentation.LoginContent
 import ru.itmo.events.presentation.welcome.WelcomeContent
 import ru.itmo.events.presentation.main.MainContent
-import ru.itmo.events.shared.root.RootComponent
-import ru.itmo.events.shared.root.RootComponent.Child
+import ru.itmo.events.shared.domain.root.RootComponent
+import ru.itmo.events.shared.domain.root.RootComponent.Child
 
 @Composable
 fun RootContent(
