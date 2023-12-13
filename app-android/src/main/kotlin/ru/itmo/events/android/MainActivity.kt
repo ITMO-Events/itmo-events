@@ -4,9 +4,9 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import com.arkivanov.decompose.defaultComponentContext
-import ru.itmo.events.root.RootContent
+import ru.itmo.events.presentation.root.RootContent
 import ru.itmo.events.shared.root.DefaultRootComponent
-import ru.itmo.events.theme.AppTheme
+import ru.itmo.events.presentation.theme.AppTheme
 
 class MainActivity : ComponentActivity() {
 
