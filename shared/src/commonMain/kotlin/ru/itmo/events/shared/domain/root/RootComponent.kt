@@ -2,8 +2,11 @@ package ru.itmo.events.shared.domain.root
 
 import com.arkivanov.decompose.router.stack.ChildStack
 import com.arkivanov.decompose.value.Value
+import ru.itmo.events.shared.domain.AboutEventComponent
+import ru.itmo.events.shared.domain.addEvent.AddEventComponent
 import ru.itmo.events.shared.domain.login.LoginComponent
 import ru.itmo.events.shared.domain.main.MainComponent
+import ru.itmo.events.shared.domain.settings.SettingsComponent
 import ru.itmo.events.shared.domain.welcome.WelcomeComponent
 
 interface RootComponent {
@@ -16,8 +19,8 @@ interface RootComponent {
         class Welcome(val component: WelcomeComponent) : Child()
         class Main(val component: MainComponent) : Child()
         class Login(val component: LoginComponent) : Child()
-        class Settings : Child()
-        class AddEvent : Child()
-        class Event : Child()
+        class Settings(val component: SettingsComponent) : Child()
+        class AddEvent(val component: AddEventComponent) : Child()
+        class AboutEvent(val component: AboutEventComponent) : Child()
     }
 }

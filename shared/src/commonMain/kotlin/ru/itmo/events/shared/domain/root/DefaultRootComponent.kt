@@ -9,11 +9,14 @@ import com.arkivanov.decompose.router.stack.push
 import com.arkivanov.decompose.value.Value
 import com.arkivanov.essenty.parcelable.Parcelable
 import com.arkivanov.essenty.parcelable.Parcelize
+import ru.itmo.events.shared.domain.AboutEventComponent
+import ru.itmo.events.shared.domain.addEvent.AddEventComponent
 import ru.itmo.events.shared.domain.login.DefaultLoginComponent
 import ru.itmo.events.shared.domain.login.LoginComponent
 import ru.itmo.events.shared.domain.main.DefaultMainComponent
 import ru.itmo.events.shared.domain.main.MainComponent
 import ru.itmo.events.shared.domain.root.RootComponent.Child
+import ru.itmo.events.shared.domain.settings.SettingsComponent
 import ru.itmo.events.shared.domain.welcome.DefaultWelcomeComponent
 import ru.itmo.events.shared.domain.welcome.WelcomeComponent
 
@@ -35,9 +38,9 @@ class DefaultRootComponent(
             is Config.Main -> Child.Main(mainComponent(childComponentContext))
             is Config.Welcome -> Child.Welcome(welcomeComponent(childComponentContext))
             is Config.Login -> Child.Login(loginComponent(childComponentContext))
-            is Config.Settings -> Child.Settings()
-            is Config.AddEvent -> Child.AddEvent()
-            is Config.Event -> Child.Event()
+            is Config.Settings -> Child.Settings(settingsComponent(childComponentContext))
+            is Config.AddEvent -> Child.AddEvent(addEventComponent(childComponentContext))
+            is Config.AboutEvent -> Child.AboutEvent(aboutEventComponent(childComponentContext))
         }
 
     private fun mainComponent(componentContext: ComponentContext): MainComponent =
@@ -58,9 +61,12 @@ class DefaultRootComponent(
             navigation.push(Config.Main)
         }
 
-    private fun settingsComponent() {
+    private fun settingsComponent(componentContext: ComponentContext): SettingsComponent = TODO()
 
-    }
+    private fun addEventComponent(componentContext: ComponentContext): AddEventComponent = TODO()
+
+    private fun aboutEventComponent(componentContext: ComponentContext): AboutEventComponent =
+        TODO()
 
     override fun onBackClicked(toIndex: Int) {
         navigation.popTo(index = toIndex)
@@ -83,6 +89,6 @@ class DefaultRootComponent(
         data object AddEvent : Config
 
         @Parcelize
-        data object Event : Config
+        data object AboutEvent : Config
     }
 }
