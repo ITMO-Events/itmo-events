@@ -11,9 +11,11 @@ interface MainComponent {
 
     fun addEvent()
 
-    fun showFilter()
-
     fun onRetry()
+
+    fun setFilter(id: Int, filters: List<FilterUiEntity>)
+
+    fun toSettings()
 
     data class Model(
         var events: List<EventCardUiEntity>,

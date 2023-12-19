@@ -35,11 +35,15 @@ class DefaultRootComponent(
             is Config.Main -> Child.Main(mainComponent(childComponentContext))
             is Config.Welcome -> Child.Welcome(welcomeComponent(childComponentContext))
             is Config.Login -> Child.Login(loginComponent(childComponentContext))
+            is Config.Settings -> Child.Settings()
+            is Config.AddEvent -> Child.AddEvent()
         }
 
     private fun mainComponent(componentContext: ComponentContext): MainComponent =
         DefaultMainComponent(
-            componentContext = componentContext
+            componentContext = componentContext,
+            onSettingsClick = { navigation.push(Config.Settings) },
+            onAddEventClick = { navigation.push(Config.AddEvent) }
         )
 
     private fun welcomeComponent(componentContext: ComponentContext): WelcomeComponent =
@@ -66,5 +70,11 @@ class DefaultRootComponent(
 
         @Parcelize
         data object Login : Config
+
+        @Parcelize
+        data object Settings : Config
+
+        @Parcelize
+        data object AddEvent : Config
     }
 }

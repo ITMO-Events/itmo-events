@@ -16,5 +16,7 @@ interface RootComponent {
         class Welcome(val component: WelcomeComponent) : Child()
         class Main(val component: MainComponent) : Child()
         class Login(val component: LoginComponent) : Child()
+        class Settings : Child()
+        class AddEvent : Child()
     }
 }
