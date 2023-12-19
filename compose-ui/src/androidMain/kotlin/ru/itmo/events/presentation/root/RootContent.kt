@@ -33,6 +33,9 @@ fun RootContent(
                 is Child.Main -> MainContent(component = instance.component)
                 is Child.Welcome -> WelcomeContent(component = instance.component)
                 is Child.Login -> LoginContent(component = instance.component)
+                is Child.AddEvent -> TODO()
+                is Child.Settings -> TODO()
+                is Child.Event -> TODO()
             }
         }
     }

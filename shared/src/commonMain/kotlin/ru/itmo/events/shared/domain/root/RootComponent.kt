@@ -18,5 +18,6 @@ interface RootComponent {
         class Login(val component: LoginComponent) : Child()
         class Settings : Child()
         class AddEvent : Child()
+        class Event : Child()
     }
 }

@@ -37,6 +37,7 @@ class DefaultRootComponent(
             is Config.Login -> Child.Login(loginComponent(childComponentContext))
             is Config.Settings -> Child.Settings()
             is Config.AddEvent -> Child.AddEvent()
+            is Config.Event -> Child.Event()
         }
 
     private fun mainComponent(componentContext: ComponentContext): MainComponent =
@@ -57,6 +58,10 @@ class DefaultRootComponent(
             navigation.push(Config.Main)
         }
 
+    private fun settingsComponent() {
+
+    }
+
     override fun onBackClicked(toIndex: Int) {
         navigation.popTo(index = toIndex)
     }
@@ -76,5 +81,8 @@ class DefaultRootComponent(
 
         @Parcelize
         data object AddEvent : Config
+
+        @Parcelize
+        data object Event : Config
     }
 }
